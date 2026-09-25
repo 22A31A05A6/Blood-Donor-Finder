@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AB+ Donors — LifeLine</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">LifeLine <span class="drop">donor finder</span></a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="contact.html">Register / Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <h1>AB+ donors</h1>
+    <span class="count" id="donorCount">— donors listed</span>
+  </div>
+  <p class="page-intro">
+    Donors below have shared their contact details for emergency requests.
+    Please call directly, and be considerate about timing.
+  </p>
+
+  <div class="search-row">
+    <input type="text" id="locationSearch" placeholder="Search by city or area…">
+  </div>
+
+  <table class="donor-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody id="donorTableBody">
+      <!-- rows are rendered by script.js -->
+    </tbody>
+  </table>
+
+  <div class="empty-state" id="emptyState" style="display:none;">
+    No AB+ donors match that search yet.
+  </div>
+
+  <nav class="type-nav">
+    <a href="a-positive.html">A+</a>
+    <a href="a-negative.html">A−</a>
+    <a href="b-positive.html">B+</a>
+    <a href="b-negative.html">B−</a>
+    <a href="o-positive.html">O+</a>
+    <a href="o-negative.html">O−</a>
+    <a href="ab-positive.html" class="current">AB+</a>
+    <a href="ab-negative.html">AB−</a>
+  </nav>
+</main>
+
+<footer class="site-footer">
+  Not listed yet? <a href="contact.html">Submit your details</a> and we'll add you here.
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Donor data for this page. In this project, new donors come in through
+  // the contact form and are added here manually — this keeps the data
+  // static, so every visitor (any device) sees the same list once deployed.
+  const donors = [
+    { name: "Vamsi Krishna",   city: "Kakinada",     phone: "9876123450" },
+    { name: "Rehana Kausar",   city: "Rajahmundry", phone: "9845678901" }
+  ];
+
+  initDonorPage(donors);
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register as a Donor — LifeLine</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">LifeLine <span class="drop">donor finder</span></a>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="contact.html" class="active">Register / Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <h1>Register as a donor</h1>
+  </div>
+  <p class="contact-intro">
+    Fill in your details below. Submissions come straight to us — once
+    verified, we add you to your blood group's page so people searching
+    nearby can find and call you directly.
+  </p>
+
+  <!--
+    TODO before deploying: replace "yourFormID" with your real Formspree
+    endpoint from https://formspree.io — sign up, create a form, and it
+    will give you a URL like https://formspree.io/f/abcdwxyz
+  -->
+  <form class="contact-form" id="contactForm" action="https://formspree.io/f/yourFormID" method="POST">
+
+    <div class="field">
+      <label for="name">Full name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="field">
+      <label for="bloodType">Blood group</label>
+      <select id="bloodType" name="bloodType" required>
+        <option value="">Select your blood group</option>
+        <option value="A+">A+</option>
+        <option value="A-">A−</option>
+        <option value="B+">B+</option>
+        <option value="B-">B−</option>
+        <option value="O+">O+</option>
+        <option value="O-">O−</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB−</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="city">City / area</label>
+      <input type="text" id="city" name="city" required>
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone number</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+    </div>
+
+    <div class="field">
+      <label for="message">Message (optional)</label>
+      <textarea id="message" name="message" placeholder="Anything else we should know?"></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+    <p id="statusMsg"></p>
+  </form>
+</main>
+
+<footer class="site-footer">
+  Your number is only shown publicly once we've added you to a blood group page — you can ask to be removed any time.
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Contact form: validate the phone number client-side, then submit via
+  // fetch() so the page doesn't reload and we can show a custom message.
+  const form = document.getElementById("contactForm");
+  const statusMsg = document.getElementById("statusMsg");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const phone = document.getElementById("phone").value;
+    if (!/^[0-9]{10}$/.test(phone)) {
+      statusMsg.textContent = "Please enter a valid 10-digit phone number.";
+      statusMsg.style.color = "#c94c3f";
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { "Accept": "application/json" }
+      });
+
+      if (response.ok) {
+        statusMsg.textContent = "Thank you — your details were submitted successfully.";
+        statusMsg.style.color = "#2e7d32";
+        form.reset();
+      } else {
+        statusMsg.textContent = "Something went wrong. Please try again.";
+        statusMsg.style.color = "#c94c3f";
+      }
+    } catch (error) {
+      statusMsg.textContent = "Network error. Please check your connection and try again.";
+      statusMsg.style.color = "#c94c3f";
+    }
+  });
+</script>
+</body>
+</html>

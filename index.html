@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LifeLine — Find a Blood Donor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="brand">LifeLine <span class="drop">donor finder</span></a>
+    <nav class="site-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="contact.html">Register / Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Find a blood donor near you, by group.</h1>
+    <p>
+      LifeLine is a small, curated directory of willing blood donors, organized by
+      blood group. Pick a group below to see who's listed and where — no sign-up
+      needed to search.
+    </p>
+  </section>
+
+  <h2 style="font-family: var(--font-head); font-size: 1.2rem; margin-bottom: 4px;">
+    Browse by blood group
+  </h2>
+
+  <div class="type-grid">
+    <a class="type-card" href="a-positive.html">
+      <span class="label">A+</span>
+      <span class="sub">A positive</span>
+    </a>
+    <a class="type-card" href="a-negative.html">
+      <span class="label">A−</span>
+      <span class="sub">A negative</span>
+    </a>
+    <a class="type-card" href="b-positive.html">
+      <span class="label">B+</span>
+      <span class="sub">B positive</span>
+    </a>
+    <a class="type-card" href="b-negative.html">
+      <span class="label">B−</span>
+      <span class="sub">B negative</span>
+    </a>
+    <a class="type-card" href="o-positive.html">
+      <span class="label">O+</span>
+      <span class="sub">O positive</span>
+    </a>
+    <a class="type-card" href="o-negative.html">
+      <span class="label">O−</span>
+      <span class="sub">O negative</span>
+    </a>
+    <a class="type-card" href="ab-positive.html">
+      <span class="label">AB+</span>
+      <span class="sub">AB positive</span>
+    </a>
+    <a class="type-card" href="ab-negative.html">
+      <span class="label">AB−</span>
+      <span class="sub">AB negative</span>
+    </a>
+  </div>
+
+  <div class="jump-row">
+    <label for="bloodTypeSelect">Or jump straight to a group:</label>
+    <select id="bloodTypeSelect">
+      <option value="">Select blood type</option>
+      <option value="a-positive.html">A+</option>
+      <option value="a-negative.html">A−</option>
+      <option value="b-positive.html">B+</option>
+      <option value="b-negative.html">B−</option>
+      <option value="o-positive.html">O+</option>
+      <option value="o-negative.html">O−</option>
+      <option value="ab-positive.html">AB+</option>
+      <option value="ab-negative.html">AB−</option>
+    </select>
+  </div>
+</main>
+
+<footer class="site-footer">
+  Not a registered donor yet? <a href="contact.html">Submit your details</a> and we'll add you to the list.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

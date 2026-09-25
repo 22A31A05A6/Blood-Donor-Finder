@@ -1,0 +1,371 @@
+/* ============================================
+   LifeLine — Blood Donor Finder
+   Shared stylesheet for every page
+   ============================================ */
+
+:root {
+  --maroon: #7a1f2b;
+  --maroon-dark: #591420;
+  --paper: #faf6f2;
+  --ink: #221a1a;
+  --ink-soft: #5c4f4f;
+  --line: #e3d6d2;
+  --accent: #c94c3f;
+  --font-head: "Georgia", "Iowan Old Style", "Times New Roman", serif;
+  --font-body: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+
+a { color: inherit; }
+
+/* ---------- Header / nav ---------- */
+
+header.site-header {
+  background: var(--maroon);
+  color: var(--paper);
+  padding: 18px 24px;
+}
+
+.header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.brand {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--paper);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.brand .drop {
+  color: #f2a89a;
+  font-size: 1rem;
+}
+
+nav.site-nav {
+  display: flex;
+  gap: 20px;
+  font-size: 0.95rem;
+}
+
+nav.site-nav a {
+  text-decoration: none;
+  color: #f1e2df;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+nav.site-nav a:hover,
+nav.site-nav a.active {
+  border-bottom-color: var(--accent);
+  color: var(--paper);
+}
+
+/* ---------- Layout shell ---------- */
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ---------- Hero (home page) ---------- */
+
+.hero {
+  padding: 36px 0 28px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 36px;
+}
+
+.hero h1 {
+  font-family: var(--font-head);
+  font-size: 2.3rem;
+  margin: 0 0 12px;
+  max-width: 14ch;
+}
+
+.hero p {
+  color: var(--ink-soft);
+  max-width: 52ch;
+  font-size: 1.05rem;
+}
+
+/* ---------- Blood type selector grid ---------- */
+
+.type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 28px 0 8px;
+}
+
+.type-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 18px 10px;
+  text-align: center;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 0.15s ease, transform 0.1s ease;
+}
+
+.type-card:hover {
+  border-color: var(--maroon);
+  transform: translateY(-2px);
+}
+
+.type-card .label {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  color: var(--maroon);
+  display: block;
+}
+
+.type-card .sub {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: 4px;
+}
+
+.jump-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.jump-row select {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #fff;
+}
+
+/* ---------- Blood type page ---------- */
+
+.page-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.page-head h1 {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.page-head .count {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.page-intro {
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0 0 24px;
+}
+
+.search-row {
+  margin-bottom: 18px;
+}
+
+.search-row input {
+  width: 100%;
+  max-width: 340px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--font-body);
+}
+
+.search-row input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+table.donor-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+table.donor-table th {
+  text-align: left;
+  font-size: 0.78rem;
+  text-transform: none;
+  color: var(--ink-soft);
+  font-weight: 600;
+  border-bottom: 1px solid var(--ink);
+  padding: 8px 10px;
+}
+
+table.donor-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+table.donor-table tr:last-child td {
+  border-bottom: none;
+}
+
+.donor-name { font-weight: 600; }
+
+.donor-phone a {
+  color: var(--maroon);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.donor-phone a:hover { text-decoration: underline; }
+
+.empty-state {
+  padding: 30px 10px;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.type-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.type-nav a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.type-nav a.current {
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--paper);
+}
+
+/* ---------- Contact page ---------- */
+
+.contact-intro {
+  color: var(--ink-soft);
+  max-width: 56ch;
+  margin-bottom: 24px;
+}
+
+form.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 440px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+button.submit-btn {
+  align-self: flex-start;
+  background: var(--maroon);
+  color: var(--paper);
+  border: none;
+  padding: 11px 22px;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+button.submit-btn:hover { background: var(--maroon-dark); }
+
+#statusMsg {
+  font-size: 0.9rem;
+  min-height: 1.2em;
+}
+
+/* ---------- Footer ---------- */
+
+footer.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 22px 24px;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .type-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero h1 { font-size: 1.8rem; }
+  table.donor-table th:nth-child(2),
+  table.donor-table td:nth-child(2) { display: none; } /* hide city on tiny screens */
+}
