@@ -88,14 +88,7 @@
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
-
-    const phone = document.getElementById("phone").value;
-    if (!/^[0-9]{10}$/.test(phone)) {
-      statusMsg.textContent = "Please enter a valid 10-digit phone number.";
-      statusMsg.style.color = "#c94c3f";
-      return;
-    }
-
+    
     const formData = new FormData(form);
 
     try {
